@@ -41,7 +41,7 @@ function ConvertHandler() {
    * this has no error checking because we assume that to be done in getNum and getUnit
    */
   this.convert = function (initNum, initUnit) {
-    return _EXCHANGE[initUnit.toLowerCase()].ratio * initNum;
+    return (_EXCHANGE[initUnit.toLowerCase()].ratio * initNum).toFixed(5);
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
