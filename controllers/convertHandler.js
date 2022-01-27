@@ -24,15 +24,17 @@ function ConvertHandler() {
 
   this.getUnit = function (input) {
     const unit = input.toLowerCase().match(/[a-z]*$/);
-    return _EXCHANGE[unit] ? _EXCHANGE[unit] : undefined;
+    return _EXCHANGE[unit] ? _EXCHANGE[unit].unit : undefined;
   };
 
   this.getReturnUnit = function (initUnit) {
-    return _EXCHANGE[initUnit] ? _EXCHANGE[initUnit].returnUnit : undefined;
+    const item = _EXCHANGE[initUnit.toLowerCase()];
+    return item ? item.returnUnit : undefined;
   };
 
   this.spellOutUnit = function (unit) {
-    return _EXCHANGE[unit] ? _EXCHANGE[unit].verbose : undefined;
+    const item = _EXCHANGE[unit.toLowerCase()];
+    return item ? item.verbose : undefined;
   };
 
   this.convert = function (initNum, initUnit) {
