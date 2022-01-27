@@ -45,9 +45,9 @@ function ConvertHandler() {
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    let result;
-
-    return result;
+    const unitIn = this.spellOutUnit(initUnit);
+    const unitOut = this.spellOutUnit(returnUnit);
+    return `${initNum} ${unitIn} converts to ${returnNum} ${unitOut}`;
   };
 }
 
