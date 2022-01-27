@@ -9,7 +9,7 @@ function ConvertHandler() {
   };
 
   this.getNum = function (input) {
-    const numberPortion = input.toLowerCase().match(/[a-z]*$/).toString();
+    const numberPortion = input.toLowerCase().replace(/[a-z]*$/, "").toString();
     if (numberPortion === "") return 1
     if (numberPortion.split("/").length > 2) return undefined;
     
@@ -19,12 +19,11 @@ function ConvertHandler() {
     } catch (e) {
       return undefined;
     }
-    
     return isNaN(number) ? undefined : number
   };
 
   this.getUnit = function (input) {
-    const unit = input.toLowerCase().replace(/[a-z]*$/, '');
+    const unit = input.toLowerCase().match(/[a-z]*$/);
     return _EXCHANGE[unit] ? _EXCHANGE[unit] : undefined;
   };
 
