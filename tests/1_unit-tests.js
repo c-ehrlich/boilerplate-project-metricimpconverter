@@ -58,22 +58,22 @@ suite('Unit Tests', () => {
     assert.equal(convertHandler.spellOutUnit("km"), "kilometers");
     assert.equal(convertHandler.spellOutUnit("foo"), undefined);
   });
-  // test("convertHandler should correctly convert gal to L.", () => {
-  //   assert.equal(convertHandler.convert(1, "gal"), 3.78541);
-  // });
-  // test("convertHandler should correctly convert L to gal.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly convert mi to km.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly convert km to mi.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly convert lbs to kg.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly convert kg to lbs.", () => {
-  //   assert.fail();
-  // });
+  test("convertHandler should correctly convert gal to L.", () => {
+    assert.equal(convertHandler.convert(1, "gal"), 3.78541);
+  });
+  test("convertHandler should correctly convert L to gal.", () => {
+    assert.equal(convertHandler.convert(1, "L"), 0.26417);
+  });
+  test("convertHandler should correctly convert mi to km.", () => {
+    assert.equal(convertHandler.convert(1, "mi"), 1.60934);
+  });
+  test("convertHandler should correctly convert km to mi.", () => {
+    assert.equal(convertHandler.convert(1, "km"), 0.62137);
+  });
+  test("convertHandler should correctly convert lbs to kg.", () => {
+    assert.equal(convertHandler.convert(1, "lbs"), 0.45359);
+  });
+  test("convertHandler should correctly convert kg to lbs.", () => {
+    assert.equal(convertHandler.convert(1, "kg"), 2.20462);
+  });
 });
