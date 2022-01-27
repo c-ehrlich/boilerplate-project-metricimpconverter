@@ -47,6 +47,7 @@ suite('Unit Tests', () => {
     assert.equal(convertHandler.getReturnUnit("lbs"), "kg");
     assert.equal(convertHandler.getReturnUnit("mi"), "km");
     assert.equal(convertHandler.getReturnUnit("km"), "mi");
+    assert.equal(convertHandler.getReturnUnit("foo"), undefined);
   });
   test("convertHandler should correctly return the spelled-out string unit for each valid input unit.", () => {
     assert.equal(convertHandler.spellOutUnit("gal"), "gallons");
@@ -55,6 +56,7 @@ suite('Unit Tests', () => {
     assert.equal(convertHandler.spellOutUnit("lbs"), "pounds");
     assert.equal(convertHandler.spellOutUnit("mi"), "miles");
     assert.equal(convertHandler.spellOutUnit("km"), "kilometers");
+    assert.equal(convertHandler.spellOutUnit("foo"), undefined);
   });
   // test("convertHandler should correctly convert gal to L.", () => {
   //   assert.equal(convertHandler.convert(1, "gal"), 3.78541);
