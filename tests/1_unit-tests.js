@@ -6,34 +6,48 @@ let convertHandler = new ConvertHandler();
 
 suite('Unit Tests', () => {
   test("convertHandler should correctly read a whole number input.", () => {
-    assert.isNumber(convertHandler.getNum("1mi"));
-    assert.isNumber(convertHandler.getNum("0mi"));
-    assert.isNumber(convertHandler.getNum("-15mi"));
+    assert.equal(convertHandler.getNum("1mi"), 1);
+    assert.equal(convertHandler.getNum("0mi"), 0);
+    assert.equal(convertHandler.getNum("-15mi"), -15);
   });
-  // test("convertHandler should correctly read a decimal number input.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly read a fractional input.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly read a fractional input with a decimal.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly return an error on a double-fraction (i.e. 3/2/3).", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly default to a numerical input of 1 when no numerical input is provided.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly read each valid input unit.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should correctly return an error for an invalid input unit.", () => {
-  //   assert.fail();
-  // });
-  // test("convertHandler should return the correct return unit for each valid input unit.", () => {
-  //   assert.fail();
-  // });
+  test("convertHandler should correctly read a decimal number input.", () => {
+    assert.equal(convertHandler.getNum("3.5mi"), 3.5);
+    assert.equal(convertHandler.getNum("-999.999mi"), -999.999);
+    assert.equal(convertHandler.getNum("0.000001mi"), 0.000001);
+  });
+  test("convertHandler should correctly read a fractional input.", () => {
+    assert.equal(convertHandler.getNum("3/2mi"), 1.5);
+    assert.equal(convertHandler.getNum("-3/2mi"), -1.5);
+  });
+  test("convertHandler should correctly read a fractional input with a decimal.", () => {
+    assert.equal(convertHandler.getNum("3.5/1.75mi"), 2);
+    assert.equal(convertHandler.getNum("-3.5/1.75mi"), -2);
+  });
+  test("convertHandler should correctly return an error on a double-fraction (i.e. 3/2/3).", () => {
+    assert.isUndefined(convertHandler.getNum("3/2/3mi"));
+  });
+  test("convertHandler should correctly default to a numerical input of 1 when no numerical input is provided.", () => {
+    assert.equal(convertHandler.getNum("mi"), 1);
+  });
+  test("convertHandler should correctly read each valid input unit.", () => {
+    assert.equal(convertHandler.getUnit("1gal"), "gal");
+    assert.equal(convertHandler.getUnit("1L"), "L");
+    assert.equal(convertHandler.getUnit("1kg"), "kg");
+    assert.equal(convertHandler.getUnit("1lbs"), "lbs");
+    assert.equal(convertHandler.getUnit("1mi"), "mi");
+    assert.equal(convertHandler.getUnit("1km"), "km");
+  });
+  test("convertHandler should correctly return an error for an invalid input unit.", () => {
+    assert.isUndefined(convertHandler.getUnit("1foo"));
+  });
+  test("convertHandler should return the correct return unit for each valid input unit.", () => {
+    assert.equal(convertHandler.getReturnUnit("gal"), "L");
+    assert.equal(convertHandler.getReturnUnit("L"), "gal");
+    assert.equal(convertHandler.getReturnUnit("kg"), "lbs");
+    assert.equal(convertHandler.getReturnUnit("lbs"), "kg");
+    assert.equal(convertHandler.getReturnUnit("mi"), "km");
+    assert.equal(convertHandler.getReturnUnit("km"), "mi");
+  });
   // test("convertHandler should correctly return the spelled-out string unit for each valid input unit.", () => {
   //   assert.fail();
   // });
