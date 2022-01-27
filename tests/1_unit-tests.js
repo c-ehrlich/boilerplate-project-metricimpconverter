@@ -48,11 +48,16 @@ suite('Unit Tests', () => {
     assert.equal(convertHandler.getReturnUnit("mi"), "km");
     assert.equal(convertHandler.getReturnUnit("km"), "mi");
   });
-  // test("convertHandler should correctly return the spelled-out string unit for each valid input unit.", () => {
-  //   assert.fail();
-  // });
+  test("convertHandler should correctly return the spelled-out string unit for each valid input unit.", () => {
+    assert.equal(convertHandler.spellOutUnit("gal"), "gallons");
+    assert.equal(convertHandler.spellOutUnit("L"), "liters");
+    assert.equal(convertHandler.spellOutUnit("kg"), "kilograms");
+    assert.equal(convertHandler.spellOutUnit("lbs"), "pounds");
+    assert.equal(convertHandler.spellOutUnit("mi"), "miles");
+    assert.equal(convertHandler.spellOutUnit("km"), "kilometers");
+  });
   // test("convertHandler should correctly convert gal to L.", () => {
-  //   assert.fail();
+  //   assert.equal(convertHandler.convert(1, "gal"), 3.78541);
   // });
   // test("convertHandler should correctly convert L to gal.", () => {
   //   assert.fail();
