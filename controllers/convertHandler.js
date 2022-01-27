@@ -37,13 +37,11 @@ function ConvertHandler() {
     return item ? item.verbose : undefined;
   };
 
+  /**
+   * this has no error checking because we assume that to be done in getNum and getUnit
+   */
   this.convert = function (initNum, initUnit) {
-    const galToL = 3.78541;
-    const lbsToKg = 0.453592;
-    const miToKm = 1.60934;
-    let result;
-
-    return result;
+    return _EXCHANGE[initUnit.toLowerCase()].ratio * initNum;
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
